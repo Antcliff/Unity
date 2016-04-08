@@ -1,0 +1,91 @@
+﻿@{
+    Layout = "~/Views/Shared/_SurveyLayout.cshtml";
+}
+
+@model Unity_MVC6.Models.DualDemographicsModel
+
+<section id="DualDemographicsModelSection">
+    <h3 class="text-center">Provider/Parent Parallel Survey (11-12 Year Old Visit)</h3>
+    @using (Html.BeginForm("PostDualDemographics", "Survey", FormMethod.Post, new { @role = "form", @autocomplete = "off", @class = "BlueButton" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="panel panel-default">
+            <div class="panel-heading BoldFont">
+                Parent/Guardian Demographics
+            </div>
+            <div class="panel-body">
+                @{ Html.RenderPartial("../Shared/Partial/_Alerts"); }
+                <div class="form-group">
+                    <b>How would you describe <u>your</u> gender?</b>
+                    <br />
+                    @Html.ValidationMessageFor(m => m.SelectedParentGender)
+                    @Html.DropDownListFor(m => m.SelectedParentGender, new SelectList(Model.GenderList, "GenderId", "Gender1", null), string.Empty, new { @class = "form-control Width120" })
+                </div>
+                <div class="form-group">
+                    <b>How old are you?</b>
+                    <br />
+                    @Html.ValidationMessageFor(m => m.ParentAge)
+                    @Html.TextBoxFor(m => m.ParentAge, new { @class = "form-control Width120" })
+                </div>
+                <div class="form-group">
+                    @Html.ValidationMessage("ParentRaceValidation")
+                    <b>How would you describe <u>yourself</u>?</b> <i>(Mark all that apply)</i>
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.ParentAfricanAmericanorBlack)&nbsp;&nbsp;African American or Black
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.ParentAmericanIndianorAlaskaNative)&nbsp;&nbsp;American Indian or Alaska Native
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.ParentAsian)&nbsp;&nbsp;Asian
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.ParentHispanicorLatino)&nbsp;&nbsp;Hispanic or Latino
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.ParentWhite)&nbsp;&nbsp;White
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.ParentNativeHawaiianorotherPacificIslander)&nbsp;&nbsp;Native Hawaiian or other Pacific Islander
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.ParentOther)&nbsp;&nbsp;Other (Please Specify)
+                    @Html.ValidationMessageFor(m => m.ParentOtherExplanation)
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.TextBoxFor(m => m.ParentOtherExplanation, new { @class = "form-control Width300px", @style = "margin-left: 20px" })
+                </div>
+                <div class="form-group">
+                    <b>How would you describe your <u>child's</u> gender?</b>
+                    <br />
+                    @Html.ValidationMessageFor(m => m.SelectedChildGender)
+                    @Html.DropDownListFor(m => m.SelectedChildGender, new SelectList(Model.GenderList, "GenderId", "Gender1", null), string.Empty, new { @class = "form-control Width120" })
+                </div>
+                <div class="form-group">
+                    <b>How old is your child?</b>
+                    <br />
+                    @Html.ValidationMessageFor(m => m.ChildAge)
+                    @Html.TextBoxFor(m => m.ChildAge, new { @class = "form-control Width120" })
+                </div>
+                <div class="form-group">
+                    @Html.ValidationMessage("ChildRaceValidation")
+                    How would you describe your <u>child</u>? (Mark all that apply)
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.ChildAfricanAmericanorBlack)&nbsp;&nbsp;African American or Black
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.ChildAmericanIndianorAlaskaNative)&nbsp;&nbsp;American Indian or Alaska Native
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.ChildAsian)&nbsp;&nbsp;Asian
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.ChildHispanicorLatino)&nbsp;&nbsp;Hispanic or Latino
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.ChildWhite)&nbsp;&nbsp;White
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.ChildNativeHawaiianorotherPacificIslander)&nbsp;&nbsp;Native Hawaiian or other Pacific Islander
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.ChildOther)&nbsp;&nbsp;Other (Please Specify)
+                    @Html.ValidationMessageFor(m => m.ChildOtherExplanation)
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.TextBoxFor(m => m.ChildOtherExplanation, new { @class = "form-control Width300px", @style = "margin-left: 20px" })
+                </div>
+                <input type="submit" id="btnSubmit" name="Command" value="Next" class="btn-md btn-default" />
+            </div>
+        </div>
+        @Html.HiddenFor(m => m.SurveyCodeId)
+        @Html.HiddenFor(m => m.SurveyAgeId)
+        @Html.HiddenFor(m => m.SurveyAge)
+    }
+</section>
+
+<script src="~/Scripts/Page Scripts/DualDemographics_Scripts.js"></script>

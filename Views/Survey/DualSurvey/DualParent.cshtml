@@ -1,0 +1,208 @@
+﻿@{
+    Layout = "~/Views/Shared/_SurveyLayout.cshtml";
+}
+
+@model Unity_MVC6.Models.DualParentModel
+
+<section id="DualParentModelSection">
+    <h3 class="text-center">Provider/Parent Parallel Survey (@Model.SurveyAge Year Old Visit)</h3>
+    @using (Html.BeginForm("PostDualParent", "Survey", FormMethod.Post, new { @role = "form", @autocomplete = "off", @class = "BlueButton" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="panel panel-default">
+            <div class="panel-heading BoldFont">
+                Parent/Guardian
+            </div>
+            <div class="panel-body">
+                @{ Html.RenderPartial("../Shared/Partial/_Alerts"); }
+                <div class="form-group">
+                    <b>What shots did your provider recommend for your teen at this visit?</b> <i>(Check all that apply)</i>
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.TdapRecommended)&nbsp;&nbsp;Tdap or whooping cough vaccine or pertussis vaccine
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.MenACWYRecommended)&nbsp;&nbsp;Meningitis (meningococcal ACWY)
+                    <br />
+                    @if (Model.SurveyAgeId == 2)
+                    {
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.MenBRecommended)&nbsp;&nbsp;Meningococcal B vaccine</span>
+                        <br />
+                    }
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.HPVRecommended)&nbsp;&nbsp;HPV or anti-cancer vaccine
+                </div>
+                <div class="NoSelection">
+                    <div class="NoRecommendation">
+                        <div class="form-group">
+                            <b>In what order did your provider recommend the vaccines? </b>
+                            <br />
+                            @Html.ValidationMessage("ShotOrder")
+                            <div class="TdapOrder">
+                                @Html.ValidationMessageFor(m => m.TdapOrder)
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(m => m.TdapOrder, "1")<span> 1&nbsp;&nbsp;&nbsp;</span>@Html.RadioButtonFor(m => m.TdapOrder, "2")<span> 2&nbsp;&nbsp;&nbsp;</span>@Html.RadioButtonFor(m => m.TdapOrder, "3", new { @class = "ThirdOrder" })<span class="ThirdOrder"> 3&nbsp;&nbsp;&nbsp;</span>@Html.RadioButtonFor(m => m.TdapOrder, "4", new { @class = "ForthOrder" })<span class="ForthOrder"> 4&nbsp;&nbsp;&nbsp;</span>Tdap or whooping cough vaccine or pertussis vaccine
+                            </div>
+                            <div class="MenACWYOrder">
+                                @Html.ValidationMessageFor(m => m.MenACWYOrder)
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(m => m.MenACWYOrder, "1")<span> 1&nbsp;&nbsp;&nbsp;</span>@Html.RadioButtonFor(m => m.MenACWYOrder, "2")<span> 2&nbsp;&nbsp;&nbsp;</span>@Html.RadioButtonFor(m => m.MenACWYOrder, "3", new { @class = "ThirdOrder" })<span class="ThirdOrder"> 3&nbsp;&nbsp;&nbsp;</span>@Html.RadioButtonFor(m => m.MenACWYOrder, "4", new { @class = "ForthOrder" })<span class="ForthOrder"> 4&nbsp;&nbsp;&nbsp;</span>Meningitis (meningococcal ACWY)
+                            </div>
+                            @if (Model.SurveyAgeId == 2)
+                            {
+                                <div class="MenBOrder">
+                                    @Html.ValidationMessageFor(m => m.MenBOrder)
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(m => m.MenBOrder, "1")<span> 1&nbsp;&nbsp;&nbsp;</span>@Html.RadioButtonFor(m => m.MenBOrder, "2")<span> 2&nbsp;&nbsp;&nbsp;</span>@Html.RadioButtonFor(m => m.MenBOrder, "3", new { @class = "ThirdOrder" })<span class="ThirdOrder"> 3&nbsp;&nbsp;&nbsp;</span>@Html.RadioButtonFor(m => m.MenBOrder, "4", new { @class = "ForthOrder" })<span class="ForthOrder"> 4&nbsp;&nbsp;&nbsp;</span>Meningococcal B vaccine
+                                </div>
+                            }
+                            <div class="HPVOrder">
+                                @Html.ValidationMessageFor(m => m.HPVOrder)
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(m => m.HPVOrder, "1")<span> 1&nbsp;&nbsp;&nbsp;</span>@Html.RadioButtonFor(m => m.HPVOrder, "2")<span> 2&nbsp;&nbsp;&nbsp;</span>@Html.RadioButtonFor(m => m.HPVOrder, "3", new { @class = "ThirdOrder" })<span class="ThirdOrder"> 3&nbsp;&nbsp;&nbsp;</span>@Html.RadioButtonFor(m => m.HPVOrder, "4", new { @class = "ForthOrder" })<span class="ForthOrder"> 4&nbsp;&nbsp;&nbsp;</span>HPV or anti-cancer vaccine
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <b>Some providers recommend shots one at a time (separately) and some recommend the shots all together.<br />How did your provider recommend the shots today?</b>
+                            <br />
+                            @Html.ValidationMessageFor(m => m.ShotRecommendation)
+                            @foreach (Unity_MVC6.Models.ValueValuePair pair in Model.ShotRecommendationList)
+                            {
+                                <div>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>@Html.RadioButtonFor(m => m.ShotRecommendation, pair.Key) <span>&nbsp;&nbsp;</span>@pair.Value
+                                </div>
+                            }
+                        </div>
+                        <div class="form-group">
+                            <b>What impression did you take away related to the recommended shots? </b>
+                            <br />
+                            @Html.ValidationMessageFor(m => m.ShotImpression)
+                            @foreach (Unity_MVC6.Models.ValueValuePair pair in Model.ShotImpressionList)
+                            {
+                                <div>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>@Html.RadioButtonFor(m => m.ShotImpression, pair.Key) <span>&nbsp;&nbsp;</span>@pair.Value
+                                </div>
+                            }
+                        </div>
+                    </div> <!-- No Recommendation-->
+                    <div class="form-group">
+                        <b>Did your provider recommend that the shot(s) be given <u>today</u>? </b>
+                        <br />
+                        @Html.ValidationMessageFor(m => m.AllShotsRecommended)
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(m => m.AllShotsRecommended, "Y")<span> Yes</span>
+                            &nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(m => m.AllShotsRecommended, "N")<span> No</span>
+                            &nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(m => m.AllShotsRecommended, "D")<span> Don't Know</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <b>Did you ask your teen's provider any questions about the shot(s) that he/she recommended? </b>
+                        <br />
+                        @Html.ValidationMessageFor(m => m.AskProviderQuestions)
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(m => m.AskProviderQuestions, "Y")<span> Yes</span>
+                            &nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(m => m.AskProviderQuestions, "N")<span> No</span>
+                            &nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(m => m.AskProviderQuestions, "D")<span> Don't Know</span>
+                        </div>
+                    </div>
+                    <div class="form-group QuestionEffectiveness">
+                        <b>How effective was your provider in answering your questions? </b>
+                        <br />
+                        @Html.ValidationMessageFor(m => m.QuestionEffectiveness)
+                        @foreach (Unity_MVC6.Models.ValueValuePair pair in Model.QuestionEffectivenessList)
+                        {
+                            <div>
+                                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>@Html.RadioButtonFor(m => m.QuestionEffectiveness, pair.Key) <span>&nbsp;&nbsp;</span>@pair.Value
+                            </div>
+                        }
+                    </div>
+                    <div class="form-group ShotsReceived">
+                        <b>Which shot(s) did your teen get today?</b> <i>(Check all that apply)</i>
+                        <br />
+                        <div class="TdapReceived">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.TdapReceived)&nbsp;&nbsp;Tdap
+                        </div>
+                        <div class="MenACWYReceived">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.MenACWYReceived)&nbsp;&nbsp;MenACWY
+                        </div>
+                        <div class="MenBReceived">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.MenBReceived)&nbsp;&nbsp;MenB
+                        </div>
+                        <div class="HPVReceived">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.HPVReceived)&nbsp;&nbsp;HPV
+                        </div>
+                    </div>
+                    <div class="AllChecked">
+                        <div class="form-group ShotsNotReceived">
+                            <b>Can you tell us why your teen did NOT get the specified shot today? </b>
+                            <br />
+                            <div class="TdapNotReceived">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.ValidationMessageFor(m => m.TdapNotReceivedReason)
+                                <u>Tdap</u>
+                                @foreach (Unity_MVC6.Models.ValueValuePair pair in Model.ShotNotReceivedReasonList)
+                                {
+                                    <div>
+                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>@Html.RadioButtonFor(m => m.TdapNotReceivedReason, pair.Key) <span>&nbsp;&nbsp;</span>@pair.Value
+                                    </div>
+                                }
+                                <br />
+                            </div>
+                            <div class="MenACWYNotReceived">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.ValidationMessageFor(m => m.MenACWYNotReceivedReason)
+                                <u>MenACWY</u>
+                                @foreach (Unity_MVC6.Models.ValueValuePair pair in Model.ShotNotReceivedReasonList)
+                                {
+                                    <div>
+                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>@Html.RadioButtonFor(m => m.MenACWYNotReceivedReason, pair.Key) <span>&nbsp;&nbsp;</span>@pair.Value
+                                    </div>
+                                }
+                                <br />
+                            </div>
+                            <div class="MenBNotReceived">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.ValidationMessageFor(m => m.MenBNotReceivedReason)
+                                <u>MenB</u>
+                                @foreach (Unity_MVC6.Models.ValueValuePair pair in Model.ShotNotReceivedReasonList)
+                                {
+                                    <div>
+                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>@Html.RadioButtonFor(m => m.MenBNotReceivedReason, pair.Key) <span>&nbsp;&nbsp;</span>@pair.Value
+                                    </div>
+                                }
+                                <br />
+                            </div>
+                            <div class="HPVNotReceived">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.ValidationMessageFor(m => m.HPVNotReceivedReason)
+                                <u>HPV</u>
+                                @foreach (Unity_MVC6.Models.ValueValuePair pair in Model.ShotNotReceivedReasonList)
+                                {
+                                    <div>
+                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>@Html.RadioButtonFor(m => m.HPVNotReceivedReason, pair.Key) <span>&nbsp;&nbsp;</span>@pair.Value
+                                    </div>
+                                }
+                                <br />
+                            </div>
+                            <div class="form-group">
+                                <b>Have you ever delayed a vaccine for this teen for reasons other than illness or allergy? </b>
+                                <br />
+                                @Html.ValidationMessageFor(m => m.EverDelayed)
+                                <div>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(m => m.EverDelayed, "Y")<span> Yes</span>
+                                    &nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(m => m.EverDelayed, "N")<span> No</span>
+                                    &nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(m => m.EverDelayed, "D")<span> Don't Know</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <b>I am able to openly discuss my concerns about vaccines with my teen's doctor? </b>
+                                <br />
+                                @Html.ValidationMessageFor(m => m.CanDiscuss)
+                                <div>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(m => m.CanDiscuss, "Y")<span> Yes</span>
+                                    &nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(m => m.CanDiscuss, "N")<span> No</span>
+                                    &nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(m => m.CanDiscuss, "D")<span> Don't Know</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- No Selection -->
+            </div>
+        </div>
+        <input type="submit" id="btnSubmit" name="Command" value="Submit" class="btn-md btn-default" />
+    @Html.HiddenFor(m => m.SurveyCodeId)
+    @Html.HiddenFor(m => m.SurveyAgeId)
+    @Html.HiddenFor(m => m.SurveyAge)
+}
+</section>
+
+<script src="~/Scripts/Page Scripts/DualParent_Scripts.js"></script>

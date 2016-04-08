@@ -1,0 +1,45 @@
+﻿@model Unity_MVC6.Models.EditUserModel
+
+<section id="loginForm">
+    @using (Html.BeginForm("EditUser", "Administration", FormMethod.Post, new { @role = "form", @autocomplete = "off" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Edit User
+            </div>
+            <div class="panel-body">
+                @{ Html.RenderPartial("../Shared/Partial/_Alerts"); }
+                <div class="form-group">
+                    @Html.LabelFor(m => m.FirstName, new { @class = "control-label" })
+                    @Html.ValidationMessageFor(m => m.FirstName)
+                    @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control Width300px" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.LastName, new { @class = "control-label" })
+                    @Html.ValidationMessageFor(m => m.LastName)
+                    @Html.TextBoxFor(m => m.LastName, new { @class = "form-control Width300px" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+                    @Html.ValidationMessageFor(m => m.Email)
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control Width300px" })
+                </div>
+                <div class="form-group">
+                    @Html.Label("Role", new { @class = "control-label" })
+                    @Html.ValidationMessageFor(m => m.SelectedRole)
+                    @Html.DropDownListFor(m => m.SelectedRole, new SelectList(Model.RoleList, "RoleId", "RoleName", null), string.Empty, new { @class = "form-control Width300px" })
+                </div>
+                <div class="form-group">
+                    @Html.ValidationMessageFor(m => m.Active)
+                    @Html.CheckBoxFor(m => m.Active)
+                    @Html.LabelFor(m => m.Active, new { @class = "control-label" })
+                </div>
+                <button type="submit" id="btnEdit" name="Command" value="Edit">Save</button>
+                <button type="submit" id="btnCancel" name="Command" value="Cancel" class="cancel">Cancel</button>
+            </div>
+        </div>
+
+        @Html.HiddenFor(m => m.UserId);
+                    }
+    </section>

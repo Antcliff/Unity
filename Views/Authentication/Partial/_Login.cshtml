@@ -1,0 +1,31 @@
+﻿@model Unity_MVC6.Models.LoginModel
+
+<section id="loginForm">
+    @using (Html.BeginForm("Login", "Authentication", FormMethod.Post, new { @role = "form", @autocomplete = "off" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Login
+            </div>
+            <div class="panel-body">
+                @{ Html.RenderPartial("../Shared/Partial/_Alerts"); }
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Username, new { @class = "control-label" })
+                    @Html.ValidationMessageFor(m => m.Username)
+                    @Html.TextBoxFor(m => m.Username, new { @class = "form-control Width300px" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+                    @Html.ValidationMessageFor(m => m.Password)
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control Width300px" })
+                </div>
+                <input type="submit" value="Log in" class="btn-md btn-default" />
+                <br />
+                @*<div>
+                    <span class="forgotpassword" onclick="toggleForgotPassword()">Forgot Password</span>
+                </div>*@
+            </div>
+        </div>
+                    }
+</section>

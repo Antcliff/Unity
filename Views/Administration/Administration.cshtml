@@ -1,0 +1,75 @@
+﻿@model Unity_MVC6.Models.SurveyAdministrationModel
+
+@{ Html.RenderPartial("../Shared/Partial/_Alerts"); }
+<div class="container">
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">User</a>
+                </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <div id="UserGridContainer">
+                        @Html.Partial("Partial/_UserGrid")
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Practice</a>
+                </h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <div id="PracticeGridContainer">
+                        @Html.Partial("Partial/_PracticeGrid")
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Provider</a>
+                </h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <div id="ProviderGridContainer">
+                        @Html.Partial("Partial/_ProviderGrid")
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Surveys</a>
+                </h4>
+            </div>
+            <div id="collapse4" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <h3 class="text-center">Vaccination Practices Survey</h3>
+                    @using (Html.BeginForm("GenerateAVPSSurvey", "Survey", FormMethod.Get, new { @role = "form", @autocomplete = "off", @class = "NoBackgroundForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <button type="submit" id="btnGenerate" name="Command" value="Generate">Generate Survey</button>
+                    }
+                    <br />
+                    <hr />
+                    @using (Html.BeginForm("EmailAVPSSurvey", "Administration", FormMethod.Post, new { @role = "form", @autocomplete = "off", @class = "NoBackgroundForm text-center", @id = "EmailSurvey" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationMessageFor(m => m.Email)
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control Width300px" })
+                        <button type="submit" id="btnEmail" name="Command" value="Email">Email Survey To Provider</button>
+                    }
+            </div>
+        </div>
+    </div>
+</div>
+    </div>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a591085ed79141a392e68458fd8c38ba" Name="Diagram1">
+        <EntityTypeShape EntityType="UnityModel.AVPS11To12EmployeeInteraction" Width="1.5" PointX="5.25" PointY="38.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnityModel.AVPS11To12WellVisit" Width="1.5" PointX="8.25" PointY="37.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnityModel.AVPS16EmployeeInteraction" Width="1.5" PointX="5.25" PointY="33.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnityModel.AVPS16WellVisit" Width="1.5" PointX="5.25" PointY="43.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnityModel.AVPSAgeGoal" Width="1.5" PointX="5.25" PointY="55.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnityModel.AVPSDemographic" Width="1.5" PointX="11.25" PointY="38.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnityModel.AVPSDiscussion" Width="1.5" PointX="5.25" PointY="65.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnityModel.AVPSEmployeeType" Width="1.5" PointX="3" PointY="32.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnityModel.AVPSGenderDifference" Width="1.5" PointX="6" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnityModel.AVPSGenderLikelihood" Width="1.5" PointX="6" PointY="50" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnityModel.AVPSInteractionType" Width="1.5" PointX="3" PointY="28.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnityModel.AVPSVisitTime" Width="1.5" PointX="6" PointY="61.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnityModel.DualChildRace" Width="1.5" PointX="13.5" PointY="32.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnityModel.DualDemographic" Width="1.5" PointX="16.5" PointY="32.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnityModel.DualParentRace" Width="1.5" PointX="13.5" PointY="28.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnityModel.DualParentSurvey" Width="1.5" PointX="13.5" PointY="36.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnityModel.DualProviderSurvey" Width="1.5" PointX="19.5" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnityModel.Gender" Width="1.5" PointX="14.25" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnityModel.Practice" Width="1.5" PointX="0.75" PointY="38.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnityModel.Provider" Width="1.5" PointX="3" PointY="37" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnityModel.ProviderRace" Width="1.5" PointX="8.25" PointY="32.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnityModel.Race" Width="1.5" PointX="6" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnityModel.State" Width="1.5" PointX="0.75" PointY="35" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnityModel.SurveyAge" Width="1.5" PointX="9" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnityModel.SurveyCode" Width="1.5" PointX="11.25" PointY="31" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnityModel.User" Width="1.5" PointX="9" PointY="24.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnityModel.webpages_Membership" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnityModel.webpages_OAuthMembership" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnityModel.webpages_Roles" Width="1.5" PointX="6.75" PointY="25.25" IsExpanded="true" />
+        <AssociationConnector Association="UnityModel.FK_AVPS11To12EmployeeInteraction_AVPSEmployeeType" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_AVPS11To12EmployeeInteraction_AVPSInteractionType" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_AVPS11To12EmployeeInteraction_Provider" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_AVPS11To12WellVisit_AddrQues_AVPSGenderDifference" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_AVPS11To12WellVisit_AVPSVisitTime" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_AVPS11To12WellVisit_FirstVisitRec_AVPSGenderLiklihood" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_AVPS11To12WellVisit_Provider" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_AVPS11To12WellVisit_RecomConf_AVPSGenderDifference" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_AVPS16EmployeeInteraction_AVPSEmployeeType" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_AVPS16EmployeeInteraction_AVPSInteractionType" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_AVPS16EmployeeInteraction_Provider" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_AVPS16WellVisit_AddrQues_AVPSGenderDifference" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_AVPS16WellVisit_AVPSVisitTime" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_AVPS16WellVisit_FirstVisitRec_AVPSGenderLiklihood" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_AVPS16WellVisit_Provider" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_AVPS16WellVisit_RecomConf_AVPSGenderDifference" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_AVPSAgeGoal_Provider" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_AVPSDemographics_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_AVPSDemographics_Provider" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_AVPSDiscussion_Provider" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_DualChildRace_Race" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_DualChildRace_SurveyCode" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_DualDemographics_ChildGender" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_DualDemographics_ParentGender" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_DualDemographics_SurveyCode" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_DualParentRace_Race" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_DualParentRace_SurveyCode" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_DualParentSurve_SurveyAge" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_DualParentSurvey_SurveyCode" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_DualProviderSurvey_SurveyAge" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_DualProviderSurvey_SurveyCode" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_Provider_Practice" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_SurveyCode_Practice" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_Provider_State" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_ProviderRace_Provider" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_SurveyCode_Provider" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_ProviderRace_Race" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_SurveyCode_SurveyAge" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.FK_SurveyCode_User" ManuallyRouted="false" />
+        <AssociationConnector Association="UnityModel.webpages_UsersInRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

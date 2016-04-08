@@ -1,0 +1,9 @@
+﻿@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+@model Unity_MVC6.Models.AuthenticationModel
+
+<div id="LoginPartial">
+    @Html.Partial("Partial/_Login", Model.LoginModel)
+</div>

@@ -1,0 +1,60 @@
+﻿@model Unity_MVC6.Models.SurveyModel
+
+<section id="GenerateCodeSection">
+    @using (Html.BeginForm("GenerateCode", "Survey", FormMethod.Post, new { @role = "form", @autocomplete = "off", @class = "BlueButton" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Generate New Survey Code
+            </div>
+            @{ Html.RenderPartial("../Shared/Partial/_Alerts"); }
+            <div class="panel-body">
+                <div class="form-group">
+                    @Html.Label("Practice", new { @class = "control-label" })
+                    @Html.ValidationMessageFor(m => m.SelectedPractice)
+                    @Html.DropDownListFor(m => m.SelectedPractice, new SelectList(Model.PracticeList, "PracticeId", "Practice1", null), string.Empty, new { @class = "form-control Width300px" })
+                </div>
+                <div class="form-group">
+                    @Html.Label("Provider", new { @class = "control-label" })
+                    @Html.ValidationMessageFor(m => m.SelectedProvider)
+                    @Html.DropDownListFor(m => m.SelectedProvider, new SelectList(Model.ProviderList, "ProviderId", "Name", null), string.Empty, new { @class = "form-control Width300px" })
+                </div>
+                <div class="form-group">
+                    @Html.Label("Age", new { @class = "control-label" })
+                    @Html.ValidationMessageFor(m => m.SelectedAge)
+                    @Html.DropDownListFor(m => m.SelectedAge, new SelectList(Model.AgeList, "SurveyAgeId", "SurveyAge1", null), string.Empty, new { @class = "form-control Width300px" })
+                </div>
+                <input type="submit" value="Generate" class="btn-md btn-default" />
+            </div>
+        </div>
+    }
+</section>
+
+<section id="ActiveSurveySection">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Active Surveys
+        </div>
+        <div class="panel-body">
+            <table id="SurveyGrid" class="table table-condensed table-hover table-striped" data-toggle="bootgrid" data-ajax="true" data-url="@Url.Content("~/Survey/PopulateSurveyGridData")">
+                <thead>
+                    <tr>
+                        <th data-column-id="SurveyCode" data-order="desc">Code</th>
+                        <th data-column-id="User">User</th>
+                        <th data-column-id="Practice">Practice</th>
+                        <th data-column-id="Provider">Provider</th>
+                        <th data-column-id="SurveyAge">Age</th>
+                        <th data-column-id="ProviderStatus">Provider Status</th>
+                        <th data-column-id="PatientStatus">Patient Status</th>
+                        <th data-column-id="GenerateProviderSurvey" data-formatter="GenerateProviderSurvey" data-sortable="false">Provider Survey</th>
+                        <th data-column-id="GeneratePatientSurvey" data-formatter="GeneratePatientSurvey" data-sortable="false">Patient Survey</th>
+                        <th data-column-id="SurveyCodeId" data-type="numeric" data-identifier="true" data-sortable="false" data-visible="false">ID</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</section>
+
+<script src="~/Scripts/Page Scripts/Survey_Scripts.js"></script>

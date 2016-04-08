@@ -1,0 +1,17 @@
+﻿@{
+    var alerts = TempData.ContainsKey(Unity_MVC6.Business.HtmlHelperExtension.Alert.TempDataKey)
+                ? (List<Unity_MVC6.Business.HtmlHelperExtension.Alert>)TempData[Unity_MVC6.Business.HtmlHelperExtension.Alert.TempDataKey]
+                : new List<Unity_MVC6.Business.HtmlHelperExtension.Alert>();
+
+    foreach (var alert in alerts)
+    {
+        var dismissableClass = alert.Dismissable ? "alert-dismissable" : null;
+        <div class="alert alert-@alert.AlertStyle @dismissableClass" id="gts-alert">
+            @if (alert.Dismissable)
+            {
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            }
+            @Html.Raw(alert.Message)
+        </div>
+    }
+}

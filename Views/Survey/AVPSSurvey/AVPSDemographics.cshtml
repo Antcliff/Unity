@@ -1,0 +1,63 @@
+﻿@{
+    Layout = "~/Views/Shared/_SurveyLayout.cshtml";
+}
+
+@model Unity_MVC6.Models.AVPSDemographicsModel
+
+<section id="AVPSDemographicsSection">
+    <h3 class="text-center">Adolescent Vaccination Practices Survey</h3>
+    @using (Html.BeginForm("PostAVPSDemographics", "Survey", FormMethod.Post, new { @role = "form", @autocomplete = "off", @class = "BlueButton" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="panel panel-default">
+            <div class="panel-heading BoldFont">
+                Demographics
+            </div>
+            <div class="panel-body">
+                @{ Html.RenderPartial("../Shared/Partial/_Alerts"); }
+                <div class="form-group">
+                    How would you describe your gender? @Html.ValidationMessageFor(m => m.SelectedGender)
+                    @Html.DropDownListFor(m => m.SelectedGender, new SelectList(Model.GenderList, "GenderId", "Gender1", null), string.Empty, new { @class = "form-control Width300px" })
+                </div>
+                <div class="form-group">
+                    How old are you? @Html.ValidationMessageFor(m => m.Age)
+                    @Html.TextBoxFor(m => m.Age, new { @class = "form-control Width300px" })
+                </div>
+                <div class="form-group">
+                    How would you describe yourself? (Mark all that apply)@Html.ValidationMessage("RaceValidation")
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.AfricanAmericanorBlack)&nbsp;&nbsp;African American or Black
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.AmericanIndianorAlaskaNative)&nbsp;&nbsp;American Indian or Alaska Native
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.Asian)&nbsp;&nbsp;Asian
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.HispanicorLatino)&nbsp;&nbsp;Hispanic or Latino
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.White)&nbsp;&nbsp;White
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.NativeHawaiianorotherPacificIslander)&nbsp;&nbsp;Native Hawaiian or other Pacific Islander
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.Other)&nbsp;&nbsp;Other (Please Specify)&nbsp;&nbsp;@Html.TextBoxFor(m => m.OtherExplanation, new { @class = "form-control Width300px" })@Html.ValidationMessageFor(m => m.OtherExplanation)
+                </div>
+                <div class="form-group">
+                    How many years have you been practicing medicine?
+                    @Html.ValidationMessageFor(m => m.PracticeYears)
+                    @Html.TextBoxFor(m => m.PracticeYears, new { @class = "form-control Width300px" })
+                </div>
+                <div class="form-group">
+                    How many years have you been in your <u>current</u> clinic?
+                    @Html.ValidationMessageFor(m => m.ClinicYears)
+                    @Html.TextBoxFor(m => m.ClinicYears, new { @class = "form-control Width300px" })
+                </div>
+            </div>
+
+
+        </div>
+        <input type="submit" value="Next" class="btn-md btn-default" />
+        @Html.HiddenFor(m => m.ProviderId)
+                        @Html.HiddenFor(m => m.HasMenB)
+                    }
+</section>
+
+<script src="~/Scripts/Page Scripts/AVPSDemographics_Scripts.js"></script>

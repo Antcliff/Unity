@@ -1,0 +1,731 @@
+﻿@{
+    Layout = "~/Views/Shared/_SurveyLayout.cshtml";
+}
+
+@model Unity_MVC6.Models.AVPSAgeGoalModel
+
+<section id="AVPSAgeGoalSection">
+    <h3 class="text-center">Adolescent Vaccination Practices Survey</h3>
+    @{ Html.RenderPartial("../Shared/Partial/_Alerts"); }
+    @using (Html.BeginForm("PostAVPSAgeGoal", "Survey", FormMethod.Post, new { @role = "form", @autocomplete = "off", @class = "BlueButton" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="panel panel-default">
+            <div class="panel-heading BoldFont">
+                Adolescent Vaccination Practices
+            </div>
+            <div class="panel-body">
+                <div>
+                    For each vaccine, please describe your <u>administration goals</u> for adolescent patients.
+                    <br />
+                    "Age goal" is the age by which you <u>want</u> your patient to be immunized.
+                </div>
+                <br />
+                <div class="table-responsive">
+                    <table class="table SurveyTableBottomBorder">
+                        <tr>
+                            <td class="text-center SurveyTableRightBorder BoldFont">
+                                Male Adolescent Patients
+                            </td>
+                            <td class="text-center BoldFont">
+                                Age Goal
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="SurveyTableRightBorder"></td>
+                            <td>
+                                <table class="table SurveyTableNoMarginPaddingBorder">
+                                    <tr>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            10
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            11
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            12
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            13
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            14
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            15
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            16
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            17
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            18
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            19
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            20
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            21
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center SurveyTableRightBorder">
+                                Tdap
+                                @Html.ValidationMessageFor(m => m.MAgeGoal_Tdap)
+                            </td>
+                            <td>
+                                <table class="table SurveyTableNoMarginPaddingBorder">
+                                    <tr>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_Tdap, 10)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_Tdap, 11)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_Tdap, 12)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_Tdap, 13)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_Tdap, 14)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_Tdap, 15)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_Tdap, 16)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_Tdap, 17)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_Tdap, 18)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_Tdap, 19)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_Tdap, 20)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_Tdap, 21)
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center SurveyTableRightBorder">
+                                HPV Initial Dose
+                                @Html.ValidationMessageFor(m => m.MAgeGoal_HPVInit)
+                            </td>
+                            <td>
+                                <table class="table SurveyTableNoMarginPaddingBorder">
+                                    <tr>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_HPVInit, 10)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_HPVInit, 11)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_HPVInit, 12)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_HPVInit, 13)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_HPVInit, 14)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_HPVInit, 15)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_HPVInit, 16)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_HPVInit, 17)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_HPVInit, 18)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_HPVInit, 19)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_HPVInit, 20)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_HPVInit, 21)
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center SurveyTableRightBorder">
+                                HPV Series Completion
+                                @Html.ValidationMessageFor(m => m.MAgeGoal_HPVComp)
+                            </td>
+                            <td>
+                                <table class="table SurveyTableNoMarginPaddingBorder">
+                                    <tr>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_HPVComp, 10)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_HPVComp, 11)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_HPVComp, 12)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_HPVComp, 13)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_HPVComp, 14)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_HPVComp, 15)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_HPVComp, 16)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_HPVComp, 17)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_HPVComp, 18)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_HPVComp, 19)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_HPVComp, 20)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_HPVComp, 21)
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center SurveyTableRightBorder">
+                                MenACWY
+                                @Html.ValidationMessageFor(m => m.MAgeGoal_ACWY)
+                            </td>
+                            <td>
+                                <table class="table SurveyTableNoMarginPaddingBorder">
+                                    <tr>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_ACWY, 10)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_ACWY, 11)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_ACWY, 12)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_ACWY, 13)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_ACWY, 14)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_ACWY, 15)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_ACWY, 16)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_ACWY, 17)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_ACWY, 18)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_ACWY, 19)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_ACWY, 20)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_ACWY, 21)
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center SurveyTableRightBorder">
+                                MenACWY Booster
+                                @Html.ValidationMessageFor(m => m.MAgeGoal_ACWYBoost)
+                            </td>
+                            <td>
+                                <table class="table SurveyTableNoMarginPaddingBorder">
+                                    <tr>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_ACWYBoost, 10)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_ACWYBoost, 11)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_ACWYBoost, 12)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_ACWYBoost, 13)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_ACWYBoost, 14)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_ACWYBoost, 15)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_ACWYBoost, 16)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_ACWYBoost, 17)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_ACWYBoost, 18)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_ACWYBoost, 19)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_ACWYBoost, 20)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_ACWYBoost, 21)
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        @if (Model.HasMenB)
+                        {
+                        <tr>
+                            <td class="text-center SurveyTableRightBorder">
+                                Meningococcal B
+                                @Html.ValidationMessageFor(m => m.MAgeGoal_MenB)
+                            </td>
+                            <td>
+                                <table class="table SurveyTableNoMarginPaddingBorder">
+                                    <tr>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_MenB, 10)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_MenB, 11)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_MenB, 12)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_MenB, 13)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_MenB, 14)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_MenB, 15)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_MenB, 16)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_MenB, 17)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_MenB, 18)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_MenB, 19)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_MenB, 20)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.MAgeGoal_MenB, 21)
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    }
+                    </table>
+                    <table class="table SurveyTableBottomBorder">
+                        <tr>
+                            <td class="text-center SurveyTableRightBorder BoldFont">
+                                Female Adolescent Patients
+                            </td>
+                            <td class="text-center BoldFont">
+                                Age Goal
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="SurveyTableRightBorder"></td>
+                            <td>
+                                <table class="table SurveyTableNoMarginPaddingBorder">
+                                    <tr>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            10
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            11
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            12
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            13
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            14
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            15
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            16
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            17
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            18
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            19
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            20
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            21
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center SurveyTableRightBorder">
+                                Tdap
+                                @Html.ValidationMessageFor(m => m.FAgeGoal_Tdap)
+                            </td>
+                            <td>
+                                <table class="table SurveyTableNoMarginPaddingBorder">
+                                    <tr>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_Tdap, 10)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_Tdap, 11)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_Tdap, 12)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_Tdap, 13)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_Tdap, 14)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_Tdap, 15)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_Tdap, 16)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_Tdap, 17)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_Tdap, 18)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_Tdap, 19)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_Tdap, 20)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_Tdap, 21)
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center SurveyTableRightBorder">
+                                HPV Initial Dose
+                                @Html.ValidationMessageFor(m => m.FAgeGoal_HPVInit)
+                            </td>
+                            <td>
+                                <table class="table SurveyTableNoMarginPaddingBorder">
+                                    <tr>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_HPVInit, 10)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_HPVInit, 11)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_HPVInit, 12)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_HPVInit, 13)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_HPVInit, 14)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_HPVInit, 15)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_HPVInit, 16)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_HPVInit, 17)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_HPVInit, 18)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_HPVInit, 19)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_HPVInit, 20)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_HPVInit, 21)
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center SurveyTableRightBorder">
+                                HPV Series Completion
+                                @Html.ValidationMessageFor(m => m.FAgeGoal_HPVComp)
+                            </td>
+                            <td>
+                                <table class="table SurveyTableNoMarginPaddingBorder">
+                                    <tr>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_HPVComp, 10)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_HPVComp, 11)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_HPVComp, 12)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_HPVComp, 13)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_HPVComp, 14)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_HPVComp, 15)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_HPVComp, 16)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_HPVComp, 17)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_HPVComp, 18)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_HPVComp, 19)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_HPVComp, 20)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_HPVComp, 21)
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center SurveyTableRightBorder">
+                                MenACWY
+                                @Html.ValidationMessageFor(m => m.FAgeGoal_ACWY)
+                            </td>
+                            <td>
+                                <table class="table SurveyTableNoMarginPaddingBorder">
+                                    <tr>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_ACWY, 10)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_ACWY, 11)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_ACWY, 12)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_ACWY, 13)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_ACWY, 14)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_ACWY, 15)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_ACWY, 16)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_ACWY, 17)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_ACWY, 18)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_ACWY, 19)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_ACWY, 20)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_ACWY, 21)
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center SurveyTableRightBorder">
+                                MenACWY Booster
+                                @Html.ValidationMessageFor(m => m.FAgeGoal_ACWYBoost)
+                            </td>
+                            <td>
+                                <table class="table SurveyTableNoMarginPaddingBorder">
+                                    <tr>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_ACWYBoost, 10)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_ACWYBoost, 11)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_ACWYBoost, 12)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_ACWYBoost, 13)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_ACWYBoost, 14)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_ACWYBoost, 15)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_ACWYBoost, 16)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_ACWYBoost, 17)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_ACWYBoost, 18)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_ACWYBoost, 19)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_ACWYBoost, 20)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_ACWYBoost, 21)
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        @if (Model.HasMenB)
+                        {
+                        <tr>
+                            <td class="text-center SurveyTableRightBorder">
+                                Meningococcal B
+                                @Html.ValidationMessageFor(m => m.FAgeGoal_MenB)
+                            </td>
+                            <td>
+                                <table class="table SurveyTableNoMarginPaddingBorder">
+                                    <tr>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_MenB, 10)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_MenB, 11)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_MenB, 12)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_MenB, 13)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_MenB, 14)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_MenB, 15)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_MenB, 16)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_MenB, 17)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_MenB, 18)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_MenB, 19)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_MenB, 20)
+                                        </td>
+                                        <td class="text-center SurveyTableNoMarginPaddingBorder">
+                                            @Html.RadioButtonFor(m => m.FAgeGoal_MenB, 21)
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        }
+                    </table>
+
+
+
+                </div>
+            </div>
+        </div>
+        <input type="submit" value="Next" class="btn-md btn-default" />
+
+        @Html.HiddenFor(m => m.ProviderId)
+        @Html.HiddenFor(m => m.HasMenB)
+    }
+</section>
+
+<script src="~/Scripts/Page Scripts/AVPSAgeGoal_Scripts.js"></script>

@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity</title>
+</head>
+<body>
+    <div class="headerWrapper">
+        <div class="red"></div>
+        <div class="image">
+
+        </div>
+    </div>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("Administrator"))
+                        {
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        }
+                    }
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Unity", "Home", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Surveys", "Surveys", "Survey")</li>
+                </ul>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    if (User.IsInRole("Administrator"))
+                    {
+                        @*<ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Reports", "Reports", "Report")</li>
+                        </ul>*@
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Administration", "Administration", "Administration")</li>
+                        </ul>
+                    }
+                }
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Logout", "Logout", "Authentication")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content minWidth">
+        @RenderBody()
+    </div>
+    <footer>
+        <div id="footer-v1" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/CollegeOrUniversity">
+            <div class="wrapper">
+                <p class="tagline">Fulfilling <span>the</span> Promise</p>
+                <p class="internal"><a href="/privacy" id="privacy-policy-link">Privacy Notice</a></p>
+                <p class="copyright">
+                    <a href="http://www.iu.edu/" class="block-iu"><img src="//assets.iu.edu/brand/legacy/block-iu.png" height="26" width="22" alt="Block IU" /></a>
+                    <span class="line-break">
+                        <a href="http://www.iu.edu/copyright/index.shtml">Copyright</a> &#169; 2016
+                    </span>
+                    <span class="line-break">The Trustees of <a href="http://www.iu.edu/" itemprop="url"><span itemprop="name">Indiana University</span></a>,</span>
+                    <span class="line-break"><a href="http://www.iu.edu/copyright/complaints.shtml">Copyright Complaints</a></span>
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

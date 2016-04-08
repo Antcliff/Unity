@@ -1,0 +1,91 @@
+﻿@{
+    Layout = "~/Views/Shared/_SurveyLayout.cshtml";
+}
+
+@model Unity_MVC6.Models.ProviderContactInfoModel
+
+<section id="ProviderContactInfoSection">
+    <h3 class="text-center">Adolescent Vaccination Practices Survey</h3>
+    @using (Html.BeginForm("PostProviderContactInfo", "Survey", FormMethod.Post, new { @role = "form", @autocomplete = "off", @class = "BlueButton" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="panel panel-default">
+            <div class="panel-heading BoldFont">
+                Contact Information
+            </div>
+            <div class="panel-body">
+                @{ Html.RenderPartial("../Shared/Partial/_Alerts"); }
+                <div class="row form-group">
+                    <div class="col-md-12">
+                        @Html.Label("Practice", new { @class = "control-label" })
+                        @Html.ValidationMessageFor(m => m.SelectedPractice)
+                        @Html.DropDownListFor(m => m.SelectedPractice, new SelectList(Model.PracticeList, "PracticeId", "Practice1", null), string.Empty, new { @class = "form-control Width300px" })
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-4">
+                        @Html.LabelFor(m => m.FirstName, new { @class = "control-label" })
+                        @Html.ValidationMessageFor(m => m.FirstName)
+                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control Width300px" })
+                    </div>
+                    <div class="col-md-4">
+                        @Html.LabelFor(m => m.LastName, new { @class = "control-label" })
+                        @Html.ValidationMessageFor(m => m.LastName)
+                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control Width300px" })
+                    </div>
+                    <div class="col-md-4">
+                        @Html.LabelFor(m => m.Title, new { @class = "control-label" })
+                        @Html.ValidationMessageFor(m => m.Title)
+                        @Html.TextBoxFor(m => m.Title, new { @class = "form-control Width300px" })
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-4">
+                        @Html.LabelFor(m => m.AddressLine1, new { @class = "control-label" })
+                        @Html.ValidationMessageFor(m => m.AddressLine1)
+                        @Html.TextBoxFor(m => m.AddressLine1, new { @class = "form-control Width300px" })
+                    </div>
+                    <div class="col-md-4">
+                        @Html.LabelFor(m => m.AddressLine2, new { @class = "control-label" })
+                        @Html.ValidationMessageFor(m => m.AddressLine2)
+                        @Html.TextBoxFor(m => m.AddressLine2, new { @class = "form-control Width300px" })
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-4">
+                        @Html.LabelFor(m => m.City, new { @class = "control-label" })
+                        @Html.ValidationMessageFor(m => m.City)
+                        @Html.TextBoxFor(m => m.City, new { @class = "form-control Width300px" })
+                    </div>
+                    <div class="col-md-4">
+                        @Html.Label("State", new { @class = "control-label" })
+                        @Html.ValidationMessageFor(m => m.SelectedState)
+                        @Html.DropDownListFor(m => m.SelectedState, new SelectList(Model.StateList, "StateId", "State1", null), string.Empty, new { @class = "form-control Width300px" })
+                    </div>
+                    <div class="col-md-4">
+                        @Html.LabelFor(m => m.Zip, new { @class = "control-label" })
+                        @Html.ValidationMessageFor(m => m.Zip)
+                        @Html.TextBoxFor(m => m.Zip, new { @class = "form-control Width300px" })
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-4">
+                        @Html.LabelFor(m => m.WorkPhone, new { @class = "control-label" })
+                        @Html.ValidationMessageFor(m => m.WorkPhone)
+                        @Html.TextBoxFor(m => m.WorkPhone, new { @class = "form-control Width300px" })
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-4">
+                        @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+                        @Html.ValidationMessageFor(m => m.Email)
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control Width300px" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="submit" value="Next" class="btn-md btn-default" />
+                    }
+</section>
+
+<script src="~/Scripts/Page Scripts/ProviderContactInfo_Scripts.js"></script>

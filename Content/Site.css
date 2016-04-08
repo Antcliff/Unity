@@ -1,0 +1,1444 @@
+body {
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.field-validation-error {
+    border: 0px !important;
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+
+select.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.SurveyTableRightBorder {
+    border-right: 1px solid #ddd !important;
+}
+
+.SurveyTableBottomBorder {
+    border-bottom: 1px solid #ddd;
+}
+
+.BoldFont {
+    font-weight: bold !important;
+}
+
+.SurveyTableNoMarginPaddingBorder{
+    margin: 0px !important;
+    padding: 0px !important;
+    border: 0px !important;
+}
+
+.SuggestedRadio {
+    border: 1px solid #0273dd; /* Fallback */
+    border: 1px solid rgba(0,0,0,0.4);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3),
+                inset 0 10px 10px rgba(255,255,255,0.1);
+    border-radius: 10px;
+    background: #e00 ;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.8);
+}
+
+.float-left {
+    float: left !important;
+}
+
+.float-right {
+    float: right !important;
+}
+
+.width9Pct {
+    width: 9% !important;
+}
+h2{
+ text-align: center;
+}
+/* Login Form */
+
+#loginForm
+{
+  background-color: #EEE;
+   
+    border-radius: 15px;
+    border-color:#EEE !important;
+    border-width: 5px;
+    box-shadow:0 1px 0 #cfcfcf;
+}
+
+.panel-heading
+{
+ text-align: center;
+ font-size:20px;
+ font-weight: bold;
+ background:#7A1705 !important;
+ color:white !important;
+}
+
+#loginForm .panel-body
+{
+ margin:0 auto;
+ width:300px;
+ background:#eee;
+ border-radius: 5px;
+ margin-bottom:10px;
+ margin-top:10px;
+}
+
+#loginForm  input[type=submit]
+{
+ width: 100%;
+    padding: 8px 5px;  
+    border: 1px solid #0273dd; /* Fallback */
+    border: 1px solid rgba(0,0,0,0.4);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3),
+                inset 0 10px 10px rgba(255,255,255,0.1);
+    border-radius: 10px;
+    background: #7A1705 ;
+    cursor:pointer;  
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.8);
+    margin-bottom:15px;
+   margin-top:10px;
+ 
+}
+
+#loginForm input[type=submit]:hover { 
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+#loginForm input[type=submit]:active { 
+    background: #7A1705;
+    box-shadow: inset 0 0 3px rgba(0,0,0,0.6);
+    border-color: #000; /* Fallback */
+    border-color: rgba(0,0,0,0.9);
+}
+
+#loginForm input[type=submit]:hover {
+    background: #7A1705;
+    color:#FFF;
+    font-weight: bold;
+ 
+
+}
+
+#loginForm a
+{
+ text-decoration: none;
+}
+
+#loginForm .control-label
+{
+ font-size:20px;
+}
+
+#loginForm #Username
+{
+ height:40px !important;
+ border-radius:10px !important;
+}
+
+#loginForm #Password
+{
+ height:40px !important;
+ border-radius: 10px !important;
+}
+
+/*media queries for Login */
+@media only screen and (max-width:480px)
+{
+ #loginForm .panel-body
+ {
+  width:100% !important;
+  margin-top:30px;
+  margin-bottom:30px;
+  margin-top:20px;
+  margin-bottom:20px;
+  margin:0 auto;
+  box-shadow:0px 0px 1px 0px #cfcfcf !important;
+ }
+ 
+ 
+ 
+}
+
+/********* Surveys ***************/
+#GenerateCodeSection
+{
+   background-color: #EEE;   
+    border-radius: 15px;
+    border-color:#EEE !important;
+    border-width: 5px;
+    box-shadow:0 1px 0 #cfcfcf;
+}
+
+#GenerateCodeSection .panel-body
+{
+ margin:0 auto;
+ width:300px;
+ background:#eee;
+ border-radius: 5px;
+ margin-bottom:10px;
+ margin-top:10px;
+}
+
+#GenerateCodeSection  input[type=submit]
+{
+ width: 100%;
+    padding: 8px 5px;  
+    border: 1px solid #0273dd; /* Fallback */
+    border: 1px solid rgba(0,0,0,0.4);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3),
+                inset 0 10px 10px rgba(255,255,255,0.1);
+    border-radius: 10px;
+    background: #7A1705 ;
+    cursor:pointer;  
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.8);
+    margin-bottom:15px;
+   margin-top:10px;
+ 
+}
+
+#GenerateCodeSection input[type=submit]:hover { 
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+#GenerateCodeSection input[type=submit]:active { 
+    background: #7A1705;
+    box-shadow: inset 0 0 3px rgba(0,0,0,0.6);
+    border-color: #000; /* Fallback */
+    border-color: rgba(0,0,0,0.9);
+}
+
+#GenerateCodeSection input[type=submit]:hover {
+    background: #7A1705;
+    color:#FFF;
+    font-weight: bold;
+ 
+
+}
+
+#GenerateCodeSection .control-label
+{
+ font-size:20px;
+}
+
+@media only screen and (max-width:480px)
+{
+ #GenerateCodeSection .panel-body
+ {
+  width:100% !important;
+  margin-top:30px;
+  margin-bottom:30px;
+  margin-top:20px;
+  margin-bottom:20px;
+  margin:0 auto;
+  box-shadow:0px 0px 1px 0px #cfcfcf !important;
+ }
+ 
+ 
+ 
+}
+/**************** Active Survey Desktop to Mobile *************/
+#ActiveSurveySection
+{
+  background-color: #EEE;
+    border-radius: 15px;
+    border-color:#EEE !important;
+    border-width: 5px;
+    box-shadow:0 1px 0 #cfcfcf;
+ margin-top:20px;
+
+ 
+}
+@media only screen and (max-width:768px)
+{
+	
+	#ActiveSurveySection table, 
+	#ActiveSurveySection thead, 
+	#ActiveSurveySection tbody, 
+	#ActiveSurveySection th, 
+	#ActiveSurveySection td, 
+	#ActiveSurveySection tr { 
+		display: block; 
+	}
+ 
+	/* Hide table headers (but not display: none;, for accessibility) */
+	#ActiveSurveySection thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+ 
+	#ActiveSurveySection tr { border: 1px solid #ccc; }
+ 
+	#ActiveSurveySection td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		 padding-left:65%;
+		white-space: normal;
+		text-align:left;
+        word-wrap: break-word;
+	}
+ 
+	#ActiveSurveySection td:before { 		
+		position: absolute;
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 		
+		text-align:left;
+		font-weight: bold;
+     width:200px;
+	} 
+#ActiveSurveySection td:nth-of-type(1):before { content: "Code"; }
+#ActiveSurveySection td:nth-of-type(2):before { content: "User"; }
+ #ActiveSurveySection td:nth-of-type(3):before { content: "Practice"; }
+#ActiveSurveySection td:nth-of-type(4):before { content: "Provider"; }
+#ActiveSurveySection td:nth-of-type(5):before { content: "Age"; }
+#ActiveSurveySection td:nth-of-type(6):before { content: "Provider Status"; }
+#ActiveSurveySection td:nth-of-type(7):before { content: "Patient Status"; }
+#ActiveSurveySection td:nth-of-type(8):before { content: "Provider Survey"; }
+#ActiveSurveySection td:nth-of-type(9):before { content: "Patient Survey"; }
+
+ 
+}
+ 
+/************** Administration page **************************/
+#accordion
+{
+width:75%;
+ margin:0 auto;
+}
+a:hover {
+ text-decoration: none !important;
+}
+
+a:visited, a:focus 
+{
+ text-decoration: none !important;
+}
+
+.panel-body h3
+{
+ text-align: center;
+
+}
+
+
+@media only screen and (max-width:768px)
+{
+	
+	#collapse1 table, 
+	#collapse1 thead, 
+	#collapse1 tbody, 
+	#collapse1 th, 
+	#collapse1 td, 
+	#collapse1 tr { 
+		display: block; 
+	}
+ 
+	/* Hide table headers (but not display: none;, for accessibility) */
+	#collapse1 thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+ 
+	#collapse1 tr { border: 1px solid #ccc; }
+ 
+	#collapse1 td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		 padding-left:40%;
+		white-space: normal;
+		text-align:left;
+     z-index: 0;
+     width:100%;
+       
+	}
+ 
+	#collapse1 td:before { 
+     z-index: 10 !important;
+		position: absolute;
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		text-align:left;
+		font-weight: bold;
+     
+	} 
+#collapse1 td:nth-of-type(1):before { content: "Last Name"; }
+#collapse1 td:nth-of-type(2):before { content: "First Name"; }
+ #collapse1 td:nth-of-type(3):before { content: "Email"; }
+#collapse1 td:nth-of-type(4):before { content: "Role"; }
+#collapse1 td:nth-of-type(5):before { content: "Status"; }
+#collapse1 td:nth-of-type(6):before { content: "Edit"; 	z-index: 9999 !important;  }
+ 
+ 
+
+ 
+}
+
+@media screen and (min-width:768px)
+{
+ 	#collapse1 table, 
+	#collapse1 thead, 
+	#collapse1 tbody, 
+	#collapse1 th, 
+	#collapse1 td, 
+	#collapse1 tr { 
+		display: block; 
+	}
+ 
+	/* Hide table headers (but not display: none;, for accessibility) */
+	#collapse1 thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+ 
+	#collapse1 tr { border: 1px solid #ccc; }
+ 
+		#collapse1 td { 
+		/* Behave  like a "row" */
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		 padding-left:65%;
+		white-space: normal;
+		text-align:left;
+        word-wrap: break-word;
+      width:100%;
+       
+	}
+ 
+	#collapse1 td:before { 	
+     
+		position: absolute;
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		text-align:left;
+		font-weight: bold;
+     
+	} 
+ 
+ #collapse1 td a
+ {
+  width:100%;
+  height:100%;
+ }
+#collapse1 td:nth-of-type(1):before { content: "Last Name"; }
+#collapse1 td:nth-of-type(2):before { content: "First Name"; }
+ #collapse1 td:nth-of-type(3):before { content: "Email"; }
+#collapse1 td:nth-of-type(4):before { content: "Role"; }
+#collapse1 td:nth-of-type(5):before { content: "Status"; }
+#collapse1 td:nth-of-type(6):before { content: "Edit"; 	z-index: 9999 !important;  }
+ 
+ 
+ 
+}
+
+@media only screen and (max-width:768px)
+{
+ #accordion
+{
+width:100%;
+ margin:0 auto;
+}
+	
+	#collapse2 table, 
+	#collapse2 thead, 
+	#collapse2 tbody, 
+	#collapse2 th, 
+	#collapse2 td, 
+	#collapse2 tr { 
+		display: block; 
+    
+	}
+ 
+	/* Hide table headers (but not display: none;, for accessibility) */
+	#collapse2 thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+ 
+	#collapse2 tr { border: 1px solid #ccc; }
+ 
+	#collapse2 td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		 padding-left:40%;
+		white-space: normal;
+		text-align:left;
+     width:50px;
+       
+	}
+ 
+	#collapse2 td:before { 	
+     
+		position: absolute;
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		text-align:left;
+		font-weight: bold;
+     width:100%;
+	} 
+#collapse2 td:nth-of-type(1):before { content: "Name"; }
+#collapse2 td:nth-of-type(2):before { content: "Status"; }
+ #collapse2 td:nth-of-type(3):before { content: "Edit"; }
+
+ 
+}
+
+
+@media only screen and (min-width:768px)
+{
+ #accordion
+{
+width:100%;
+ margin:0 auto;
+}
+	
+	#collapse2 table, 
+	#collapse2 thead, 
+	#collapse2 tbody, 
+	#collapse2 th, 
+	#collapse2 td, 
+	#collapse2 tr { 
+		display: block; 
+    
+	}
+ 
+	/* Hide table headers (but not display: none;, for accessibility) */
+	#collapse2 thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+ 
+	#collapse2 tr { border: 1px solid #ccc; }
+ 
+	#collapse2 td { 
+		/* Behave  like a "row" */
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		 padding-left:65%;
+		white-space: normal;
+		text-align:left;
+        word-wrap: break-word;
+      width:100%;
+       
+	}
+ 
+	#collapse2 td:before { 	
+     
+		position: absolute;
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		text-align:left;
+		font-weight: bold;
+     
+	} 
+ 
+ #collapse2 td a
+ {
+  width:100%;
+  height:100px;
+ }
+#collapse2 td:nth-of-type(1):before { content: "Name"; }
+#collapse2 td:nth-of-type(2):before { content: "Status"; }
+ #collapse2 td:nth-of-type(3):before { content: "Edit"; }
+
+ 
+}
+
+@media only screen and (max-width:768px)
+{
+	
+	#collapse3 table, 
+	#collapse3 thead, 
+	#collapse3 tbody, 
+	#collapse3 th, 
+	#collapse3 td, 
+	#collapse3 tr { 
+		display: block; 
+	}
+ 
+	/* Hide table headers (but not display: none;, for accessibility) */
+	#collapse3 thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+ 
+	#collapse3 tr { border: 1px solid #ccc; }
+ 
+	#collapse3 td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		 padding-left:40%;
+		white-space: normal;
+		text-align:left;
+     width:100%;
+       
+	}
+ 
+	#collapse3 td:before { 		
+		position: absolute;
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		text-align:left;
+		font-weight: bold;
+     
+	} 
+ 
+ #collapse3 td a
+ {
+  width:100%;
+  height:100px;
+ }
+#collapse3 td:nth-of-type(1):before { content: "Last Name"; }
+#collapse3 td:nth-of-type(2):before { content: "First Name"; }
+ #collapse3 td:nth-of-type(3):before { content: "Practice"; }
+  #collapse3 td:nth-of-type(4):before { content: "Status"; }
+   #collapse3 td:nth-of-type(5):before { content: "Edit"; }
+
+ 
+}
+
+
+@media only screen and (min-width:768px)
+{
+	
+	#collapse3 table, 
+	#collapse3 thead, 
+	#collapse3 tbody, 
+	#collapse3 th, 
+	#collapse3 td, 
+	#collapse3 tr { 
+		display: block; 
+	}
+ 
+	/* Hide table headers (but not display: none;, for accessibility) */
+	#collapse3 thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+ 
+	#collapse3 tr { border: 1px solid #ccc; }
+ 
+		#collapse3 td { 
+		/* Behave  like a "row" */
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		 padding-left:65%;
+		white-space: normal;
+		text-align:left;
+        word-wrap: break-word;
+      width:100%;
+       
+	}
+ 
+	#collapse3 td:before { 	
+     
+		position: absolute;
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		text-align:left;
+		font-weight: bold;
+     
+	} 
+ 
+ #collapse3 td a
+ {
+  width:100%;
+  height:100px;
+ }
+#collapse3 td:nth-of-type(1):before { content: "Last Name"; }
+#collapse3 td:nth-of-type(2):before { content: "First Name"; }
+ #collapse3 td:nth-of-type(3):before { content: "Practice"; }
+  #collapse3 td:nth-of-type(4):before { content: "Status"; }
+   #collapse3 td:nth-of-type(5):before { content: "Edit"; }
+
+ 
+}
+
+.panel-heading
+{
+ border-radius: 5px;
+}
+
+
+#btnGenerate{
+width:50%;
+ display: block;
+ margin: 0 auto;
+ margin-top:30px;
+ border:2px solid white;
+ background:#7A1705;
+ border-radius: 5px;
+ color:white;
+ font-size:20px;
+ padding:8px 5px;
+ font-weight: bold;
+ 
+ 
+}
+
+
+#Email
+{
+ margin:0 auto;
+}
+
+#btnEmail{
+width:50%;
+ display: block;
+ margin: 0 auto;
+ margin-top:30px;
+ border:2px solid white;
+ background:#7A1705;
+ border-radius: 5px;
+ color:white;
+ font-size:20px;
+ padding:8px 5px;
+ font-weight: bold;
+ 
+}
+
+@media screen and (max-width:768px)
+{
+ 
+ #btnEmail
+ {
+  width:100%;
+ }
+ #btnGenerate
+ {
+  width:100%;
+ }
+ 
+}
+
+
+
+
+#collapse4 .panel-default
+{
+ background:#7A1705;
+}
+ .panel-group .panel
+{
+    border-radius: 4px;
+    padding-bottom: 20px !important;
+    border: none;
+}
+
+ .container {
+     padding-bottom: 10px;
+ }
+
+
+/***************** Add User **************/
+form
+{
+ background:#eee;
+}
+
+
+
+.add_user .form-group {
+    margin-bottom: 15px;
+    float: left;
+    clear: left;
+}
+
+.panel.panel-default.add_user {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.add_user #btnAdd
+{
+ float:left;
+ clear: both;
+}
+
+.add_user #btnCancel
+{
+ margin-top:10px;
+ float:left;
+ clear:both;
+}
+
+.add_user #btnAdd
+{
+ width: 100%;
+    padding: 8px 5px;  
+    border: 1px solid #0273dd; /* Fallback */
+    border: 1px solid rgba(0,0,0,0.4);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3),
+                inset 0 10px 10px rgba(255,255,255,0.1);
+    border-radius: 10px;
+    background: #7A1705 ;
+    cursor:pointer;  
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.8);
+    margin-bottom:15px;
+   margin-top:10px;
+ 
+}
+
+.add_user #btnAdd:hover { 
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+.add_user #btnAdd:active { 
+    background: #7A1705;
+    box-shadow: inset 0 0 3px rgba(0,0,0,0.6);
+    border-color: #000; /* Fallback */
+    border-color: rgba(0,0,0,0.9);
+}
+
+ .add_user #btnAdd:hover {
+    background: #7A1705;
+    color:#FFF;
+    font-weight: bold;
+ 
+
+}
+
+.add_user #btnCancel
+{
+ width: 100%;
+    padding: 8px 5px;  
+    border: 1px solid #0273dd; /* Fallback */
+    border: 1px solid rgba(0,0,0,0.4);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3),
+                inset 0 10px 10px rgba(255,255,255,0.1);
+    border-radius: 10px;
+    background: #7A1705 ;
+    cursor:pointer;  
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.8);
+    margin-bottom:15px;
+   margin-top:10px;
+ 
+}
+
+.add_user #btnCancel:hover { 
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+ .add_user #btnCancel:active { 
+    background: #7A1705;
+    box-shadow: inset 0 0 3px rgba(0,0,0,0.6);
+    border-color: #000; /* Fallback */
+    border-color: rgba(0,0,0,0.9);
+}
+
+.add_user #btnCancel:hover {
+    background: #7A1705;
+    color:#FFF;
+    font-weight: bold;
+ 
+
+}
+
+
+
+
+
+@media only screen and (max-width:768px)
+{
+ .panel.panel-default.add_user {
+    width: 100%;
+    margin: 0 auto;
+}
+ 
+}
+
+/************ Edit User *******************/
+.add_user #btnEdit
+{
+ float:left;
+ clear: both;
+}
+
+.add_user #btnEdit
+{
+ width: 100%;
+    padding: 8px 5px;  
+    border: 1px solid #0273dd; /* Fallback */
+    border: 1px solid rgba(0,0,0,0.4);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3),
+                inset 0 10px 10px rgba(255,255,255,0.1);
+    border-radius: 10px;
+    background: #7A1705 ;
+    cursor:pointer;  
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.8);
+    margin-bottom:15px;
+   margin-top:10px;
+ 
+}
+
+.add_user #btnEdit:hover { 
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+ .add_user #btnEdit:active { 
+    background: #7A1705;
+    box-shadow: inset 0 0 3px rgba(0,0,0,0.6);
+    border-color: #000; /* Fallback */
+    border-color: rgba(0,0,0,0.9);
+}
+
+.add_user #btnEdit:hover {
+    background: #7A1705;
+    color:#FFF;
+    font-weight: bold;
+ 
+
+}
+
+/*********** Practice Administration ********************************/
+#btnEdit {
+    width: 100%;
+    padding: 8px 5px;
+    border: 1px solid #0273dd;
+    border: 1px solid rgba(0,0,0,0.4);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3),
+ inset 0 10px 10px rgba(255,255,255,0.1);
+    border-radius: 10px;
+    background: #7A1705;
+    cursor: pointer;
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.8);
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+#btnCancel {
+    width: 100%;
+    padding: 8px 5px;
+    border: 1px solid #0273dd;
+    border: 1px solid rgba(0,0,0,0.4);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3),
+ inset 0 10px 10px rgba(255,255,255,0.1);
+    border-radius: 10px;
+    background: #7A1705;
+    cursor: pointer;
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.8);
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+/****************** Edit Provider *****************/
+.panel.panel-default.edit_provider {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.edit_provider #Email{
+ margin:0 !important;
+}
+
+@media only screen and (min-width:768px) and (max-width:992px)
+{
+.panel.panel-default.edit_provider {
+    width: 100% !important;
+    margin: 0 auto;
+}
+}
+
+@media only screen and (max-width:767px)
+{
+ .panel.panel-default.edit_provider {
+    width: 100% !important;
+    margin: 0 auto;
+  
+  
+}
+ 
+
+}
+/*
+.next
+ {
+    width: 100% !important;
+    padding: 8px 5px !important;
+    border: 1px solid #0273dd !important;
+    border: 1px solid rgba(0,0,0,0.4) !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3),
+ inset 0 10px 10px rgba(255,255,255,0.1) !important;
+    border-radius: 10px  !important;
+    background: #7A1705 !important;
+    cursor: pointer !important;
+    color: white !important;
+    font-weight: 700 !important;
+    font-size: 20px !important;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.8) !important;
+    margin-bottom: 15px !important;
+    margin-top: 10px !important;
+  
+ }*/
+
+#btnNext
+{
+   width: 100% !important;
+    padding: 8px 5px !important;
+    border: 1px solid #0273dd !important;
+    border: 1px solid rgba(0,0,0,0.4) !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3),
+ inset 0 10px 10px rgba(255,255,255,0.1) !important;
+    border-radius: 10px  !important;
+    background: #7A1705 !important;
+    cursor: pointer !important;
+    color: white !important;
+    font-weight: 700 !important;
+    font-size: 20px !important;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.8) !important;
+    margin-bottom: 15px !important;
+    margin-top: 10px !important;
+  
+}
+
+/** demogrpahics ********/
+
+
+.btn-mdbtn-default
+{
+ width: 100% !important;
+    padding: 8px 5px !important;
+    border: 1px solid #0273dd !important;
+    border: 1px solid rgba(0,0,0,0.4) !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3),
+ inset 0 10px 10px rgba(255,255,255,0.1) !important;
+    border-radius: 10px  !important;
+    background: #7A1705 !important;
+    cursor: pointer !important;
+    color: white !important;
+    font-weight: 700 !important;
+    font-size: 20px !important;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.8) !important;
+    margin-bottom: 15px !important;
+    margin-top: 10px !important;
+  
+}
+/***************** AVPSD Discussion ***********/
+
+.panel-heading.BoldFont {
+    width: 100%;
+    word-wrap: break-word;
+}
+@media screen and (max-width:767px){
+ 
+.table-responsive > .table > thead > tr > th, .table-responsive > .table > tbody > tr > th, .table-responsive > .table > tfoot > tr > th, .table-responsive > .table > thead > tr > td, .table-responsive > .table > tbody > tr > td, .table-responsive > .table > tfoot > tr > td{
+  white-space: normal !important;
+ }
+
+.SurveyTableBottomBorder td.SurveyTableRightBorder
+{
+ float: left !important;
+ width:50% !important;
+}
+.SurveyTableBottomBorder td.text-nowrap.text-left
+{
+  float: left !important;
+ width:50% !important;
+}
+
+ 
+}
+
+@media screen and (max-width:480px){
+ 
+
+.SurveyTableBottomBorder
+ {
+  padding:0 !important;
+  margin:0 !important;
+  width: 100% !important;
+  border: none !important;
+ }
+.SurveyTableBottomBorder td.SurveyTableRightBorder
+{
+ float: left !important;
+ width:75% !important;
+ border: none !important;
+ word-wrap: break-word !important;
+}
+.SurveyTableBottomBorder td.text-nowrap.text-left
+{
+  float: left !important;
+ width:100% !important;
+}
+ 
+ input#VaccTimePct
+ {
+  width:70%;
+ }
+ 
+ select#SelectedVaccRecTimeId {
+    width: 70%;
+}
+
+ 
+}
+
+input.btn-md.btn-default
+{
+    width: 100% !important;
+    padding: 8px 5px !important;
+    border: 1px solid #0273dd !important;
+    border: 1px solid rgba(0,0,0,0.4) !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3),
+ inset 0 10px 10px rgba(255,255,255,0.1) !important;
+    border-radius: 10px  !important;
+    background: #7A1705 !important;
+    cursor: pointer !important;
+    color: white !important;
+    font-weight: 700 !important;
+    font-size: 20px !important;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.8) !important;
+    margin-bottom: 15px !important;
+    margin-top: 10px !important;
+}
+
+.field-validation-error {
+    color: #b94a48;
+    font-size: 20px;
+    float: right;
+    width: 100%;
+    border: 1px solid #D8D8D8;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: Arial;
+    font-size: 11px;
+    text-transform: uppercase;
+    background-color: #eee;
+    color: red;
+    text-align: center;
+    font-size: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+table.table.SurveyTableBottomBorder {
+    background: #eee;
+ font-weight:10px;
+ 
+}
+
+table.table.SurveyTableBottomBorder td {
+    border-bottom:5px solid #FFF;
+}
+table.table.SurveyTableNoMarginPaddingBorder
+{
+ background:#eee;
+}
+
+td.text-center.SurveyTableRightBorder {
+    vertical-align: middle !important;
+    text-align: center;
+    margin: 0 auto;
+}
+
+table.table.SurveyTableBottomBorder  input[type="radio"]
+{
+ width:20px;
+ height:20px;
+}
+
+/****************** Nav bar ******************/
+.navbar.navbar-inverse.navbar-fixed-top
+{
+ background:#7A1705 !important;
+ margin-bottom:50px;
+ margin-top:15px;
+height:40px;
+
+}
+
+.navbar-inverse .navbar-nav > li > a
+{
+ color:#FFF !important;
+}
+
+ul.nav.navbar-nav{
+font-size: 15px;
+ font-weight: bold;
+text-align: center;
+}
+
+.navbar-collapse.collapse.in
+{
+ background: #7A1705 !important;
+ z-index: 19;
+}
+
+.navbar-inverse .navbar-toggle
+{
+ margin-top:25px;
+ background:#7A1705 !important;
+ margin-right:50px;
+ border-color: #FFF !important;
+}
+
+@media only screen and (max-width:1200px)
+{
+ ul.nav.navbar-nav {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 25px;
+    margin-top: 25px;
+}
+}
+
+
+@media only screen and (min-width:768px) {
+    ul.nav.navbar-nav {
+        font-size: 15px;
+        font-weight: bold;
+        text-align: center;
+        margin-left: 25px;
+        margin-top: 0px;
+    }
+
+    @media only screen and (min-width:1200px) {
+        ul.nav.navbar-nav {
+            font-size: 15px;
+            font-weight: bold;
+            text-align: center;
+            margin-left: 15px;
+        }
+    }
+
+
+
+    .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+        color: black;
+        border-right: 3px solid #EEE;
+    }
+
+    .thanks {
+        margin-top: 60px;
+    }
+
+
+    .image {
+        background-image: url(unity_logo.png);
+        top: 10px;
+        position: fixed;
+        background-color: #fff;
+        height: 100px;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        z-index: 10;
+    }
+
+    footer {
+        position: absolute;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .navbar-nav > li a:hover {
+        color: black !important;
+    }
+
+    .navbar-fixed-top {
+        top: 95px !important;
+    }
+
+    .headerWrapper {
+        background-color: white;
+        z-index: 10;
+    }
+
+    .red {
+        height: 10px;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        background: #7A1705;
+        z-index: 10;
+    }
+
+    .container.body-content {
+        margin-top: 150px;
+    }
+
+    body {
+        background-color: #EEE !important;
+    }
+
+    .padding20 {
+        padding: 20px;
+    }
+
+    .standardButton {
+        width: 100%;
+        padding: 8px 5px;
+        border: 1px solid #0273dd; /* Fallback */
+        border: 1px solid rgba(0,0,0,0.4);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), inset 0 10px 10px rgba(255,255,255,0.1);
+        border-radius: 10px;
+        background: #7A1705;
+        cursor: pointer;
+        color: white;
+        font-weight: 700;
+        font-size: 20px;
+        text-shadow: 0 -1px 0 rgba(0,0,0,0.8);
+        margin-bottom: 15px;
+        margin-top: 10px;
+    }
+
+    #wideLoginForm .panel-body {
+        margin: 0 auto;
+        width: auto !important;
+        background: #eee;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        margin-left: 25px !important;
+        margin-right: 25px !important;
+    }
+
+    #Email {
+        margin: 0px !important;
+    }
+
+    .NoBackgroundForm {
+        background: none !important;
+    }
+
+    #EmailSurvey input {
+        display: inline-block;
+    }
+
+    input[type=submit] {
+        background-color: #0273dd !important;
+    }
+
+    button {
+        background-color: #0273dd !important;
+    }
+
+    #ProviderEditForm button {
+        width: 300px;
+    }
+
+    .BlueButton input[type=submit] {
+        background-color: #0273dd !important;
+    }
+
+    .minWidth {
+        min-height: 400px;
+    }
+
+    @media only screen and (min-width:480px) and (max-width: 1024px) {
+        input[type=checkbox] {
+            height: 20px;
+            width: 20px;
+        }
+
+        input[type="radio"] {
+            height: 25px;
+            width: 25px;
+        }
+    }
+}

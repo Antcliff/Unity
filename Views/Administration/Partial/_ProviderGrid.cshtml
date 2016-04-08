@@ -1,0 +1,15 @@
+﻿<table id="ProviderGrid" class="table table-condensed table-hover table-striped" data-toggle="bootgrid" data-ajax="true" data-url="@Url.Content("~/Administration/PopulateProviderGridData")">
+    <thead>
+        <tr>
+            <th data-column-id="LastName" data-order="desc">Last Name</th>
+            <th data-column-id="FirstName">First Name</th>
+            <th data-column-id="Practice">Practice</th>
+            <th data-column-id="Status">Status</th>
+            <th data-column-id="Edit" data-formatter="Edit" data-sortable="false">Edit</th>
+            <th data-column-id="ProviderId" data-type="numeric" data-identifier="true" data-sortable="false" data-visible="false">ID</th>
+        </tr>
+    </thead>
+</table>
+
+<script src="~/Scripts/Page Scripts/ProviderGrid_Scripts.js"></script>
+

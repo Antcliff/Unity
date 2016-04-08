@@ -1,0 +1,619 @@
+﻿@{
+    Layout = "~/Views/Shared/_SurveyLayout.cshtml";
+}
+
+@model Unity_MVC6.Models.AVPS16WellVisitModel
+
+<section id="AVPSWellVisitSection">
+    <h3 class="text-center">Adolescent Vaccination Practices Survey</h3>
+    @{ Html.RenderPartial("../Shared/Partial/_Alerts"); }
+    @using (Html.BeginForm("PostAVPS16WellVisit", "Survey", FormMethod.Post, new { @role = "form", @autocomplete = "off", @class = "BlueButton" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="panel panel-default">
+            <div class="panel-heading BoldFont">
+                16 Year Old Well Visits
+            </div>
+            <div class="panel-body">
+                <div>
+                    Think about the last five well visits for 16 year old patients.
+                </div>
+                <br />
+                <div>
+                    During how many of the five well visits did you recommend:
+                    <br />
+                    <br />
+                    <ul>
+                        <li>
+                            MenACWY booster vaccine? @Html.TextBoxFor(m => m.ACWYBoostRecCt, new { @class = "form-control Width300px" }) @Html.ValidationMessageFor(m => m.ACWYBoostRecCt)
+                        </li>
+                        @if (Model.HasMenB)
+                        {
+                        <li>                           
+                            Meningococcal B vaccine? @Html.TextBoxFor(m => m.MenBRecCt, new { @class = "form-control Width300px" }) @Html.ValidationMessageFor(m => m.MenBRecCt)
+                        </li>
+                        }
+                    </ul>
+                    <br />
+                </div>
+                <div>
+                    Think about the <u>last two well visits for 16 year old patients</u> during which you <u>did</u> recommend the MenACWY vaccine.
+                </div>
+                <br />
+                <div class="panel panel-default">
+                    <div class="panel-heading BoldFont">
+                        Vaccination Communications
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table SurveyTableBottomBorder">
+                                <tr>
+                                    <td class="SurveyTableRightBorder">
+                                        Before you provide a vaccination recommendation at a visit, who interacts with the parent/teen to provide vaccination information and/or discuss vaccines (if any)?
+                                    </td>
+                                    <td class="text-nowrap text-left">
+                                        Check All That Apply
+                                        <br />
+                                        @Html.CheckBoxFor(m => m.VaccComm_Receptionist) Receptionist
+                                        <br />
+                                        @Html.CheckBoxFor(m => m.VaccComm_MedicalAssistant) Medical Assistant
+                                        <br />
+                                        @Html.CheckBoxFor(m => m.VaccComm_Nurse) Nurse
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="SurveyTableRightBorder">
+                                        For each individual checked above, please describe the interaction with the parent/teen.
+                                    </td>
+                                    <td class="text-nowrap text-left">
+                                        Check All That Apply
+                                        <div id="Receptionist">
+                                            <b>Receptionist</b>
+                                            <br />
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.VaccComm_Receptionist_Provides) Provides written information
+                                            <br />
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.VaccComm_Receptionist_Discusses) Discusses vaccines due
+                                            <br />
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.VaccComm_Receptionist_Answers) Answers vaccine questions
+                                            <br />
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.VaccComm_Receptionist_Recommends) Recommends vaccine
+                                        </div>
+                                        <div id="MedicalAssistant">
+                                            <b>Medical Assistant</b>
+                                            <br />
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.VaccComm_MedicalAssistant_Provides) Provides written information
+                                            <br />
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.VaccComm_MedicalAssistant_Discusses) Discusses vaccines due
+                                            <br />
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.VaccComm_MedicalAssistant_Answers) Answers vaccine questions
+                                            <br />
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.VaccComm_MedicalAssistant_Recommends) Recommends vaccine
+                                        </div>
+                                        <div id="Nurse">
+                                            <b>Nurse</b>
+                                            <br />
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.VaccComm_Nurse_Provides) Provides written information
+                                            <br />
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.VaccComm_Nurse_Discusses) Discusses vaccines due
+                                            <br />
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.VaccComm_Nurse_Answers) Answers vaccine questions
+                                            <br />
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(m => m.VaccComm_Nurse_Recommends) Recommends vaccine
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="SurveyTableRightBorder">
+                                        Within the context of the <u>total</u> exam room visit, what is the percentage of time spent on the vaccination recommendation/discussion at the 16 year old visit?
+                                    </td>
+                                    <td class="text-nowrap text-left">
+                                        @Html.ValidationMessageFor(m => m.VaccTimePct)
+                                        @Html.TextBoxFor(m => m.VaccTimePct, new { @class = "form-control Width300px" })
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="SurveyTableRightBorder">
+                                        Within an exam room visit, <u>when</u> do you typically provide your vaccination recommendation to the adolescent and parent?
+                                    </td>
+                                    <td class="text-nowrap text-left">
+                                        @Html.ValidationMessageFor(m => m.SelectedVaccRecTimeId)
+                                        @Html.DropDownListFor(m => m.SelectedVaccRecTimeId, new SelectList(Model.AVPSVisitTimeList, "AVPSVisitTimeId", "AVPSVisitTime1", null), string.Empty, new { @class = "form-control Width300px" })
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading BoldFont">
+                        Assessment of Recommendation and Q&A
+                    </div>
+                    <div class="panel-body">
+                        <div>
+                            How confident are you in delivering a <u>recommendation for the following vaccines</u>?
+                        </div>
+                        <br />
+                        <div class="table-responsive">
+                            <table class="table SurveyTableBottomBorder">
+                                <tr>
+                                    <td class="text-center SurveyTableRightBorder BoldFont">
+                                        Vaccine
+                                    </td>
+                                    <td class="text-center BoldFont">
+                                        <span class="text-left float-left">Not Confident</span><span class="text-right float-right">Confident</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="SurveyTableRightBorder"></td>
+                                    <td>
+                                        <table class="table SurveyTableNoMarginPaddingBorder">
+                                            <tr>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    0
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    1
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    2
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    3
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    4
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    5
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    6
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    7
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    8
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    9
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    10
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center SurveyTableRightBorder">
+                                        MenACWY Booster
+                                        @Html.ValidationMessageFor(m => m.RecomConf_ACWY)
+                                    </td>
+                                    <td>
+                                        <table class="table SurveyTableNoMarginPaddingBorder">
+                                            <tr>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.RecomConf_ACWY, 0)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.RecomConf_ACWY, 1)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.RecomConf_ACWY, 2)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.RecomConf_ACWY, 3)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.RecomConf_ACWY, 4)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.RecomConf_ACWY, 5)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.RecomConf_ACWY, 6)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.RecomConf_ACWY, 7)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.RecomConf_ACWY, 8)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.RecomConf_ACWY, 9)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.RecomConf_ACWY, 10)
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                @if (Model.HasMenB)
+                                {
+                                <tr>
+                                    <td class="text-center SurveyTableRightBorder">
+                                        Meningococcal B
+                                        @Html.ValidationMessageFor(m => m.RecomConf_MenB)
+                                    </td>
+                                    <td>
+                                        <table class="table SurveyTableNoMarginPaddingBorder">
+                                            <tr>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.RecomConf_MenB, 0)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.RecomConf_MenB, 1)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.RecomConf_MenB, 2)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.RecomConf_MenB, 3)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.RecomConf_MenB, 4)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.RecomConf_MenB, 5)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.RecomConf_MenB, 6)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.RecomConf_MenB, 7)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.RecomConf_MenB, 8)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.RecomConf_MenB, 9)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.RecomConf_MenB, 10)
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>  
+                                }
+                            </table>
+                            <div>
+                                Gender Differences?
+                                @Html.ValidationMessageFor(m => m.SelectedRecomConf_GenderDiffId)
+                                @Html.DropDownListFor(m => m.SelectedRecomConf_GenderDiffId, new SelectList(Model.AVPSGenderDifferenceList, "AVPSGenderDifferenceId", "AVPSGenderDifference1", null), string.Empty, new { @class = "form-control Width300px" })
+                            </div>
+                            <br />
+                            <div>
+                                How confident are you in <u>addressing questions</u> for each vaccine?
+                            </div>
+
+                            <table class="table SurveyTableBottomBorder">
+                                <tr>
+                                    <td class="text-center SurveyTableRightBorder BoldFont">
+                                        Vaccine
+                                    </td>
+                                    <td class="text-center BoldFont">
+                                        <span class="text-left float-left">Not Confident</span><span class="text-right float-right">Confident</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="SurveyTableRightBorder"></td>
+                                    <td>
+                                        <table class="table SurveyTableNoMarginPaddingBorder">
+                                            <tr>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    0
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    1
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    2
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    3
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    4
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    5
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    6
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    7
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    8
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    9
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    10
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center SurveyTableRightBorder">
+                                        MenACWY Booster
+                                        @Html.ValidationMessageFor(m => m.AddrQues_ACWY)
+                                    </td>
+                                    <td>
+                                        <table class="table SurveyTableNoMarginPaddingBorder">
+                                            <tr>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.AddrQues_ACWY, 0)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.AddrQues_ACWY, 1)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.AddrQues_ACWY, 2)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.AddrQues_ACWY, 3)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.AddrQues_ACWY, 4)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.AddrQues_ACWY, 5)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.AddrQues_ACWY, 6)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.AddrQues_ACWY, 7)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.AddrQues_ACWY, 8)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.AddrQues_ACWY, 9)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.AddrQues_ACWY, 10)
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                @if (Model.HasMenB)
+                                {
+                                <tr>
+                                    <td class="text-center SurveyTableRightBorder">
+                                        Meningococcal B
+                                        @Html.ValidationMessageFor(m => m.AddrQues_MenB)
+                                    </td>
+                                    <td>
+                                        <table class="table SurveyTableNoMarginPaddingBorder">
+                                            <tr>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.AddrQues_MenB, 0)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.AddrQues_MenB, 1)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.AddrQues_MenB, 2)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.AddrQues_MenB, 3)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.AddrQues_MenB, 4)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.AddrQues_MenB, 5)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.AddrQues_MenB, 6)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.AddrQues_MenB, 7)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.AddrQues_MenB, 8)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.AddrQues_MenB, 9)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.AddrQues_MenB, 10)
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>  
+                                }
+                            </table>
+                            <div>
+                                Gender Differences?
+                                @Html.ValidationMessageFor(m => m.SelectedAddrQues_GenderDiffId)
+                                @Html.DropDownListFor(m => m.SelectedAddrQues_GenderDiffId, new SelectList(Model.AVPSGenderDifferenceList, "AVPSGenderDifferenceId", "AVPSGenderDifference1", null), string.Empty, new { @class = "form-control Width300px" })
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading BoldFont">
+                        Administration of Adolescent Vaccines
+                    </div>
+                    <div class="panel-body">
+                        <div>
+                            How likely is it that the adolescent receives the vaccine at the <u>first</u> recommended visit?
+                        </div>
+                        <br />
+                        <div class="table-responsive">
+                            <table class="table SurveyTableBottomBorder">
+                                <tr>
+                                    <td class="text-center SurveyTableRightBorder BoldFont">
+                                        Vaccine
+                                    </td>
+                                    <td class="text-center BoldFont">
+                                        <span class="text-left float-left">Unlikely</span><span class="text-right float-right">Likely</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="SurveyTableRightBorder"></td>
+                                    <td>
+                                        <table class="table SurveyTableNoMarginPaddingBorder">
+                                            <tr>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    0
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    1
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    2
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    3
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    4
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    5
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    6
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    7
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    8
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    9
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    10
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center SurveyTableRightBorder">
+                                        MenACWY Booster
+                                        @Html.ValidationMessageFor(m => m.FirstVisitRec_ACWY)
+                                    </td>
+                                    <td>
+                                        <table class="table SurveyTableNoMarginPaddingBorder">
+                                            <tr>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.FirstVisitRec_ACWY, 0)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.FirstVisitRec_ACWY, 1)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.FirstVisitRec_ACWY, 2)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.FirstVisitRec_ACWY, 3)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.FirstVisitRec_ACWY, 4)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.FirstVisitRec_ACWY, 5)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.FirstVisitRec_ACWY, 6)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.FirstVisitRec_ACWY, 7)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.FirstVisitRec_ACWY, 8)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.FirstVisitRec_ACWY, 9)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.FirstVisitRec_ACWY, 10)
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                @if (Model.HasMenB)
+                                {
+                                <tr>
+                                    <td class="text-center SurveyTableRightBorder">
+                                        Meningococcal B
+                                        @Html.ValidationMessageFor(m => m.FirstVisitRec_MenB)
+                                    </td>
+                                    <td>
+                                        <table class="table SurveyTableNoMarginPaddingBorder">
+                                            <tr>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.FirstVisitRec_MenB, 0)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.FirstVisitRec_MenB, 1)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.FirstVisitRec_MenB, 2)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.FirstVisitRec_MenB, 3)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.FirstVisitRec_MenB, 4)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.FirstVisitRec_MenB, 5)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.FirstVisitRec_MenB, 6)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.FirstVisitRec_MenB, 7)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.FirstVisitRec_MenB, 8)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.FirstVisitRec_MenB, 9)
+                                                </td>
+                                                <td class="text-center SurveyTableNoMarginPaddingBorder width9Pct">
+                                                    @Html.RadioButtonFor(m => m.FirstVisitRec_MenB, 10)
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>    
+                                }
+                            </table>
+                            <div>
+                                Gender Differences?
+                                @Html.ValidationMessageFor(m => m.SelectedFirstVisitRec_GenderLikeId)
+                                @Html.DropDownListFor(m => m.SelectedFirstVisitRec_GenderLikeId, new SelectList(Model.AVPSGenderLikelihoodList, "AVPSGenderLikelihoodId", "AVPSGenderLikelihood1", null), string.Empty, new { @class = "form-control Width300px" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="submit" value="Next" class="btn-md btn-default" />
+
+        @Html.HiddenFor(m => m.ProviderId)
+        @Html.HiddenFor(m => m.HasMenB)
+    }
+</section>
+
+<script src="~/Scripts/Page Scripts/AVPS16WellVisit_Scripts.js"></script>

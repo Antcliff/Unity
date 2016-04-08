@@ -1,0 +1,17 @@
+﻿<table id="PracticeGrid" class="table table-condensed table-hover table-striped" data-toggle="bootgrid" data-ajax="true" data-url="@Url.Content("~/Administration/PopulatePracticeGridData")">
+    <thead>
+        <tr>
+            <th data-column-id="Practice" data-order="desc">Name</th>
+            <th data-column-id="Status">Status</th>
+            <th data-column-id="Edit" data-formatter="Edit" data-sortable="false">Edit</th>
+            <th data-column-id="PracticeId" data-type="numeric" data-identifier="true" data-sortable="false" data-visible="false">ID</th>
+        </tr>
+    </thead>
+</table>
+
+<div class="text-center">
+    <h3>@Html.ActionLink("Add Practice", "AddPractice", "Administration")</h3>
+</div>
+
+<script src="~/Scripts/Page Scripts/PracticeGrid_Scripts.js"></script>
+

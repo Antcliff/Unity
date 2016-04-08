@@ -1,0 +1,19 @@
+﻿<table id="UserGrid" class="table table-condensed table-hover table-striped" data-toggle="bootgrid" data-ajax="true" data-url="@Url.Content("~/Administration/PopulateUserGridData")">
+    <thead>
+        <tr>
+            <th data-column-id="LastName" data-order="desc">Last Name</th>
+            <th data-column-id="FirstName">First Name</th>
+            <th data-column-id="Email">Email</th>
+            <th data-column-id="Role">Role</th>
+            <th data-column-id="Status">Status</th>
+            <th data-column-id="Edit" data-formatter="Edit" data-sortable="false">Edit</th>
+            <th data-column-id="UserId" data-type="numeric" data-identifier="true" data-sortable="false" data-visible="false">ID</th>
+        </tr>
+    </thead>
+</table>
+
+<div class="text-center">
+    <h3>@Html.ActionLink("Add User", "AddUser", "Administration")</h3>
+</div>
+
+    <script src="~/Scripts/Page Scripts/UserGrid_Scripts.js"></script>

@@ -1,0 +1,34 @@
+﻿@model Unity_MVC6.Models.EditPracticeModel
+
+<section id="loginForm">
+    @using (Html.BeginForm("EditPractice", "Administration", FormMethod.Post, new { @role = "form", @autocomplete = "off" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Edit Practice
+            </div>
+            <div class="panel-body">
+                @{ Html.RenderPartial("../Shared/Partial/_Alerts"); }
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Practice, new { @class = "control-label" })
+                    @Html.ValidationMessageFor(m => m.Practice)
+                    @Html.TextBoxFor(m => m.Practice, new { @class = "form-control Width300px" })
+                </div>
+                <div class="form-group">
+                    @Html.ValidationMessageFor(m => m.HasMenB)
+                    @Html.CheckBoxFor(m => m.HasMenB)
+                    @Html.LabelFor(m => m.HasMenB, new { @class = "control-label" })
+                </div>
+                <div class="form-group">
+                    @Html.ValidationMessageFor(m => m.Active)
+                    @Html.CheckBoxFor(m => m.Active)
+                    @Html.LabelFor(m => m.Active, new { @class = "control-label" })
+                </div>
+                <button type="submit" id="btnEdit" name="Command" value="Edit">Save</button>
+                <button type="submit" id="btnCancel" name="Command" value="Cancel" class="cancel">Cancel</button>
+            </div>
+        </div>
+        @Html.HiddenFor(m => m.PracticeId)
+                    }
+    </section>
